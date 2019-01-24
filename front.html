@@ -178,9 +178,14 @@
 
         $.get("/query", data)
             .done(e => {
-                console.log(e);
-                createResultTable();
-                $.map(e, x => addToTable(x));
+
+                if (e.hasOwnProperty(0)) {
+                    createResultTable();
+                    $.map(e, x => addToTable(x));
+
+                } else {
+                    alert('No results.')
+                }
                 enable();
             });
     }

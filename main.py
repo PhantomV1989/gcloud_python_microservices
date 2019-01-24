@@ -3,6 +3,7 @@ import datetime
 import os
 
 app = Flask(__name__)
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/phantomv/Downloads/sephora-interview-229603-c9967bbe7ccd.json"
 
 
 @app.route('/')
