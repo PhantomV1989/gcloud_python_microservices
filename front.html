@@ -178,8 +178,9 @@
 
         $.get("/query", data)
             .done(e => {
-
-                if (e.hasOwnProperty(0)) {
+                if (typeof(e) == "string") {
+                    alert(e)
+                } else if (e.hasOwnProperty(0)) {
                     createResultTable();
                     $.map(e, x => addToTable(x));
 
