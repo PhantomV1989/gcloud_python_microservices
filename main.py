@@ -45,7 +45,7 @@ def query():
             SELECT title,url,text,time_ts
             FROM `bigquery-public-data.hacker_news.stories`
             {}{}
-            limit 10
+            limit 100
         """.format(where, arg)
 
         query_job = client.query(query_s)

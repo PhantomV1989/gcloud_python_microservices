@@ -1,189 +1,228 @@
-
-
 <!DOCTYPE html>
 <html>
-   <head>
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <link rel="stylesheet" href="/css">
-      <style>
-         body {
-         background: #0d8aa5;
-         }
-         .loading {
-         position: absolute;
-         left: 50%;
-         top: 50%;
-         margin: -60px 0 0 -60px;
-         background: #fff;
-         width: 100px;
-         height: 100px;
-         border-radius: 100%;
-         border: 10px solid #19bee1;
-         }
-         .loading:after {
-         content: '';
-         background: trasparent;
-         width: 140%;
-         height: 140%;
-         position: absolute;
-         border-radius: 100%;
-         top: -20%;
-         left: -20%;
-         opacity: 0.7;
-         box-shadow: rgba(255, 255, 255, 0.6) -4px -5px 3px -3px;
-         animation: rotate 2s infinite linear;
-         }
-         @keyframes rotate {
-         0% {
-         transform: rotateZ(0deg);
-         }
-         100% {
-         transform: rotateZ(360deg);
-         }
-         }
-         th {
-         color:#D5DDE5;;
-         background:#1b1e24;
-         border-bottom:4px solid #9ea7af;
-         border-right: 1px solid #343a45;
-         font-size:16px;
-         font-weight: 100;
-         text-align:left;
-         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-         vertical-align:middle;
-         }
-         th:first-child {
-         border-top-left-radius:3px;
-         }
-         th:last-child {
-         border-top-right-radius:3px;
-         border-right:none;
-         }
-         tr {
-         border-top: 1px solid #C1C3D1;
-         border-bottom-: 1px solid #C1C3D1;
-         color:#666B85;
-         font-size:16px;
-         font-weight:normal;
-         text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-         }
-         tr:first-child {
-         border-top:none;
-         }
-         tr:last-child {
-         border-bottom:none;
-         }
-         tr:nth-child(odd) td {
-         background:#EBEBEB;
-         }
-         tr:nth-child(odd):hover td {
-         background:#4E5066;
-         }
-         tr:last-child td:first-child {
-         border-bottom-left-radius:3px;
-         }
-         tr:last-child td:last-child {
-         border-bottom-right-radius:3px;
-         }
-         td {
-         background:#FFFFFF;
-         padding:20px;
-         text-align:left;
-         vertical-align:middle;
-         font-weight:300;
-         font-size:18px;
-         text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-         border-right: 1px solid #C1C3D1;
-         }
-         td:last-child {
-         border-right: 0px;
-         }
-         th.text-left {
-         text-align: left;
-         }
-         th.text-center {
-         text-align: center;
-         }
-         th.text-right {
-         text-align: right;
-         }
-         td.text-left {
-         text-align: left;
-         }
-         td.text-center {
-         text-align: center;
-         }
-         td.text-right {
-         text-align: right;
-         }
-      </style>
-   </head>
-   <body>
-      <table id='table_form'>
-         <tr>
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="/css">
+    <style>
+        body {
+            background: #0d8aa5;
+        }
+        
+        .loading {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -60px 0 0 -60px;
+            background: #fff;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            border: 10px solid #19bee1;
+        }
+        
+        .loading:after {
+            content: '';
+            background: trasparent;
+            width: 140%;
+            height: 140%;
+            position: absolute;
+            border-radius: 100%;
+            top: -20%;
+            left: -20%;
+            opacity: 0.7;
+            box-shadow: rgba(255, 255, 255, 0.6) -4px -5px 3px -3px;
+            animation: rotate 2s infinite linear;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotateZ(0deg);
+            }
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+        
+        th {
+            color: #D5DDE5;
+            ;
+            background: #1b1e24;
+            border-bottom: 4px solid #9ea7af;
+            border-right: 1px solid #343a45;
+            font-size: 16px;
+            font-weight: 100;
+            text-align: left;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            vertical-align: middle;
+        }
+        
+        th:first-child {
+            border-top-left-radius: 3px;
+        }
+        
+        th:last-child {
+            border-top-right-radius: 3px;
+            border-right: none;
+        }
+        
+        tr {
+            border-top: 1px solid #C1C3D1;
+            border-bottom-: 1px solid #C1C3D1;
+            color: #666B85;
+            font-size: 16px;
+            font-weight: normal;
+            text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+        }
+        
+        tr:first-child {
+            border-top: none;
+        }
+        
+        tr:last-child {
+            border-bottom: none;
+        }
+        
+        tr:nth-child(odd) td {
+            background: #EBEBEB;
+        }
+        
+        tr:nth-child(odd):hover td {
+            background: #4E5066;
+        }
+        
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 3px;
+        }
+        
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 3px;
+        }
+        
+        td {
+            background: #FFFFFF;
+            padding: 20px;
+            text-align: left;
+            vertical-align: middle;
+            font-weight: 300;
+            font-size: 18px;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #C1C3D1;
+        }
+        
+        td:last-child {
+            border-right: 0px;
+        }
+        
+        th.text-left {
+            text-align: left;
+        }
+        
+        th.text-center {
+            text-align: center;
+        }
+        
+        th.text-right {
+            text-align: right;
+        }
+        
+        td.text-left {
+            text-align: left;
+        }
+        
+        td.text-center {
+            text-align: center;
+        }
+        
+        td.text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <table id='table_form'>
+        <tr>
             <th>Title</th>
             <th>Text</th>
             <th>Date</th>
             <th></th>
-         </tr>
-         <tr>
-            <td><input id="title_search" type="text" value=""></td>
-            <td><input id="text_search" type="text" value=""></td>
-            <td><input id="date_search" type="date" value="2019-01-01"></td>
-            <td><button onclick="search()">Search Hacker News Stories</button></td>
-         </tr>
-      </table>
-      <p>
-      <table id='results'>
-         <tr>
-            <th>Title</th>
-            <th>URL</th>
-            <th>Text</th>
-            <th>Date</th>
-         </tr>
-      </table>
-   </body>
-   <script>
-      function search(){
-          let data = {
-              title:$('#title_search').val(),
-              text:$('#text_search').val(),
-              date:$('#date_search').val(),
-          };
+        </tr>
+        <tr>
+            <td>
+                <input id="title_search" type="text" value="">
+            </td>
+            <td>
+                <input id="text_search" type="text" value="">
+            </td>
+            <td>
+                <input id="date_search" type="date" value="2019-01-01">
+            </td>
+            <td>
+                <button onclick="search()">Search Hacker News Stories</button>
+            </td>
+        </tr>
+    </table>
+    <p>
 
-          disable();
+</body>
+<script>
+    function search() {
+        let data = {
+            title: $('#title_search').val(),
+            text: $('#text_search').val(),
+            date: $('#date_search').val(),
+        };
 
-          $.get( "/query", data)
-          .done(e=>{
-              console.log(e);
-              $.map(e,x=>addToTable(x));
-              enable();
-              });
-      }
+        disable();
 
-      function disable(){
-          $('input').prop("disabled", true);
-          $('button').prop("disabled", true);
-          $( "<div/>", {"class":"loading"}).prependTo($('table'));
-      }
+        $.get("/query", data)
+            .done(e => {
+                console.log(e);
+                createResultTable();
+                $.map(e, x => addToTable(x));
+                enable();
+            });
+    }
 
-      function enable(){
-          $('input').prop("disabled", false);
-          $('button').prop("disabled", false);
-          $( "<div/>", {"class":"loading"}).prepend("inner text 3");
-          $('.loading').remove();
-      }
+    function disable() {
+        $('input').prop("disabled", true);
+        $('button').prop("disabled", true);
+        $('#results').remove();
+        $("<div/>", {
+            "class": "loading"
+        }).prependTo($('table'));
+    }
 
-      function addToTable(d){
-          let result_table = $('#results');
-          let row = $( "<tr/>");
-          row.append($("<th/>").append(d['title']));
-          row.append($("<th/>").append(d['url']));
-          row.append($("<th/>").append(d['text']));
-          row.append($("<th/>").append(d['time_ts']));
-          row.appendTo(result_table);
-      }
+    function enable() {
+        $('input').prop("disabled", false);
+        $('button').prop("disabled", false);
+        $('.loading').remove();
+    }
 
-   </script>
+    function addToTable(d) {
+        let result_table = $('#results');
+        let row = $("<tr/>");
+        row.append($("<th/>").append(d['title']));
+        row.append($("<th/>").append(d['url']));
+        row.append($("<th/>").append(d['text']));
+        row.append($("<th/>").append(d['time_ts']));
+        row.appendTo(result_table);
+    }
+
+    function createResultTable() {
+        let l0 = $("<table/>", {
+            "id": "results",
+        });
+        let l0_0 = $("<tbody/>", {}).append("</tr>").appendTo(l0);
+        let l0_0_0 = $("<tr/>", {}).appendTo(l0_0);
+        let l0_0_0_0 = $("<th/>", {}).append("Title").appendTo(l0_0_0);
+        let l0_0_0_1 = $("<th/>", {}).append("URL").appendTo(l0_0_0);
+        let l0_0_0_2 = $("<th/>", {}).append("Text").appendTo(l0_0_0);
+        let l0_0_0_3 = $("<th/>", {}).append("Date").appendTo(l0_0_0);
+
+        $('body').append(l0);
+    }
+</script>
+
 </html>
-
