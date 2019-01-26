@@ -3,7 +3,7 @@ import datetime
 import os
 
 app = Flask(__name__)
-#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/phantomv/Downloads/sephora-interview-229603-c9967bbe7ccd.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/phantomv/Downloads/sephora-interview-229603-c9967bbe7ccd.json"
 
 
 @app.route('/')
@@ -38,7 +38,7 @@ def query():
         time = "time_ts<'{}' and time_ts>='{}'".format(_add_day(content['date']), content['date']) if \
             content['date'] != '' else ''
 
-        where = '' if title != '' and text != '' and time != '' else 'where '
+        where = '' if title == '' and text == '' and time == '' else 'where '
         arg = ' and '.join(list(filter(lambda x: x != '', [title, text, time])))
 
         query_s = """
